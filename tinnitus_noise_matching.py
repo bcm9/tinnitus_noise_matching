@@ -176,9 +176,11 @@ axs[1].plot(fft_freq_bandpass, fft_bandpass, color='lightblue')
 axs[1].set_title(' ', fontsize=18, fontweight='bold')
 axs[1].set_xlabel('Frequency (Hz)', fontsize=14)
 axs[1].set_ylabel('Magnitude', fontsize=14)
-axs[1].set_xlim([0, sample_rate / 2])
+axs[1].set_xlim([0, matched_freq*2])
 axs[1].grid(True, linestyle='--', alpha=0.3)
 
 # Adjust layout
 plt.tight_layout()
+folder = 'C:/Users/bc22/OneDrive/Documents/code/tinnitus_sound_generator/'
+plt.savefig(folder+'matched_tinnitus_noise.png', dpi=300, bbox_inches='tight')
 plt.show()
