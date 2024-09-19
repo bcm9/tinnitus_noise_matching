@@ -16,7 +16,7 @@ def generate_white_noise(duration_sec, sample_rate=44100):
     sample_rate (int): Sampling rate (e.g., 44100 samples per second)
     
     Returns:
-    np.array: The generated white noise signal
+    np.array: The generated white noise
     """
     # Generate white noise: random values between -1 and 1
     noise = np.random.uniform(-1, 1, int(duration_sec * sample_rate))
@@ -82,8 +82,8 @@ def play_sound(signal, sample_rate=44100):
 ########################################################################################################
 def tinnitus_matching():
     """
-    Interactive tinnitus matching process where the listener adjusts the centre frequency and bandwidth
-    to match their tinnitus sound.
+    Interactive tinnitus matching where the listener adjusts the centre frequency and bandwidth
+    to match their tinnitus.
     """
     sample_rate = 44100  # sampling rate
     duration_sec = 3  # second of noise to play
