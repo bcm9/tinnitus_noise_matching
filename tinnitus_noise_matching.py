@@ -126,9 +126,9 @@ def tinnitus_matching():
         elif user_input == '4':
             bandwidth -= 50  # Decrease bandwidth
         elif user_input == '5':
-            duration_sec += 1  # Increase bandwidth by 50 Hz
+            duration_sec += 1  # Increase duration
         elif user_input == '6':
-            duration_sec -= 1  # Decrease bandwidth by 50 Hz    
+            duration_sec -= 1  # Decrease duration  
         elif user_input == '7':
             continue  # Play sound again
         elif user_input == '0':
