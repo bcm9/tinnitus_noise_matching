@@ -132,7 +132,6 @@ def tinnitus_matching():
         elif user_input == '7':
             continue  # Play sound again
         elif user_input == '0':
-            print(f"Matched tinnitus parameters: Centre frequency = {matched_freq} Hz, Bandwidth = {matched_bandwidth} Hz, Duration: {duration_sec} s.")
             break
         else:
             print("Invalid input, please try again.")
@@ -141,6 +140,8 @@ def tinnitus_matching():
 
 # Start the tinnitus matching process
 matched_freq, matched_bandwidth, sample_rate, duration_sec = tinnitus_matching()
+
+print(f"Matched tinnitus parameters: Centre frequency = {matched_freq} Hz, Bandwidth = {matched_bandwidth} Hz, Duration: {duration_sec} s.")
 
 matched_noise = generate_bandpass_noise(matched_freq, matched_bandwidth, duration_sec)
 
@@ -162,20 +163,20 @@ def compute_fft(signal, sample_rate):
 fft_freq_bandpass, fft_bandpass = compute_fft(matched_noise, sample_rate)
 
 # Create a 2x1 plot (time-domain and frequency-domain)
-fig, axs = plt.subplots(2, 1, figsize=(10, 8))
+fig, axs = plt.subplots(2, 1, figsize=(10, 9))
 
 # Plot noise in the time domain
-axs[0].plot(time, matched_noise, color='lightblue')
+axs[0].plot(time, matched_noise, color='orange')
 axs[0].set_title('Matched Tinnitus Noise', fontsize=18, fontweight='bold')
-axs[0].set_xlabel('Time (s)', fontsize=14)
-axs[0].set_ylabel('Amplitude', fontsize=14)
+axs[0].set_xlabel('Time (s)', fontsize=16)
+axs[0].set_ylabel('Amplitude', fontsize=16)
 axs[0].grid(True, linestyle='--', alpha=0.3)
 
 # Plot noise in the frequency domain
-axs[1].plot(fft_freq_bandpass, fft_bandpass, color='lightblue')
+axs[1].plot(fft_freq_bandpass, fft_bandpass, color='orange')
 axs[1].set_title(' ', fontsize=18, fontweight='bold')
-axs[1].set_xlabel('Frequency (Hz)', fontsize=14)
-axs[1].set_ylabel('Magnitude', fontsize=14)
+axs[1].set_xlabel('Frequency (Hz)', fontsize=16)
+axs[1].set_ylabel('Magnitude', fontsize=16)
 axs[1].set_xlim([0, matched_freq*2])
 axs[1].grid(True, linestyle='--', alpha=0.3)
 
