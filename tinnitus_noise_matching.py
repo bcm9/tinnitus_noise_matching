@@ -165,19 +165,19 @@ fft_freq_bandpass, fft_bandpass = compute_fft(matched_noise, sample_rate)
 # Create a 2x1 plot (time-domain and frequency-domain)
 fig, axs = plt.subplots(2, 1, figsize=(10, 9))
 
-# Plot noise in the time domain
-axs[0].plot(time, matched_noise, color='orange')
+# Plot noise in the frequency domain
+axs[0].plot(fft_freq_bandpass, fft_bandpass, color='orange')
 axs[0].set_title('Matched Tinnitus Noise', fontsize=18, fontweight='bold')
-axs[0].set_xlabel('Time (s)', fontsize=16)
-axs[0].set_ylabel('Amplitude', fontsize=16)
+axs[0].set_xlabel('Frequency (Hz)', fontsize=16)
+axs[0].set_ylabel('Magnitude', fontsize=16)
+axs[0].set_xlim([0, matched_freq*2])
 axs[0].grid(True, linestyle='--', alpha=0.3)
 
-# Plot noise in the frequency domain
-axs[1].plot(fft_freq_bandpass, fft_bandpass, color='orange')
-axs[1].set_title(' ', fontsize=18, fontweight='bold')
-axs[1].set_xlabel('Frequency (Hz)', fontsize=16)
-axs[1].set_ylabel('Magnitude', fontsize=16)
-axs[1].set_xlim([0, matched_freq*2])
+# Plot noise in the time domain
+axs[1].plot(time, matched_noise, color='orange')
+axs[1].set_title('', fontsize=18, fontweight='bold')
+axs[1].set_xlabel('Time (s)', fontsize=16)
+axs[1].set_ylabel('Amplitude', fontsize=16)
 axs[1].grid(True, linestyle='--', alpha=0.3)
 
 # Adjust layout
