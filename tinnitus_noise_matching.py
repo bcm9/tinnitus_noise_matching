@@ -96,7 +96,7 @@ def tinnitus_matching():
     # print(f"Initial centre frequency: {centre_freq} Hz, bandwidth: {bandwidth} Hz.")
     
     octave_factor = 2 ** (1/3)
-    
+     
     while True:
         # Generate the band-pass noise with current parameters
         noise_signal = generate_bandpass_noise(centre_freq, bandwidth, duration_sec, sample_rate)
@@ -113,7 +113,7 @@ def tinnitus_matching():
         print("[5] Increase duration")
         print("[6] Decrease duration")
         print("[7] Play sound again")
-        print("[0] Exit and save the matched parameters")
+        print("[0] Exit and save matched parameters")
         
         user_input = input("Enter your choice: ")
         
